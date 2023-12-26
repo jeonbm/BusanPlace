@@ -1,15 +1,14 @@
-package com.mintcho95.BusanPlace.Dto;
+package com.mintcho95.BusanPlace.Entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
-@Entity(name="BusanPlace")
+@Entity
 @Table(name="busanCity")
 @Getter
-@Setter
-public class BusanPlaceDto {
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class BusanPlaceEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
