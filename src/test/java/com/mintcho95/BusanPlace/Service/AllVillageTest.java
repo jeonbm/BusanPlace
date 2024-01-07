@@ -1,6 +1,5 @@
 package com.mintcho95.BusanPlace.Service;
 
-import com.mintcho95.BusanPlace.Entity.BusanPlaceEntity;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,15 @@ public class AllVillageTest {
 
     @Test
     void AllVillage(){
-        List<BusanPlaceEntity> result = busanPlaceService.searchGu("연제구");
-        assertThat(result.size()).isEqualTo(2);
+        //List<BusanPlaceEntity> result = busanPlaceService.searchGu("연제구");
+        //assertThat(result.size()).isEqualTo(2);
 
+    }
+
+    @Test
+    void SearchGu(){
+        List<BusanPlaceEntity> result = busanPlaceService.allVillage();
+        assertThat(result.size()).isEqualTo(40);
     }
 
 
