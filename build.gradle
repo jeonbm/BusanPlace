@@ -23,6 +23,8 @@ repositories {
 
 dependencies {
 
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	// 디펜더시도 소스코드처럼 분리해서 여기로 모으는 방법이 있음
 
 

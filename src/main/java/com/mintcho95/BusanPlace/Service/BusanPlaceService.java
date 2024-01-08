@@ -2,6 +2,8 @@ package com.mintcho95.BusanPlace.Service;
 
 import com.mintcho95.BusanPlace.Dto.AttractionDto;
 import com.mintcho95.BusanPlace.Entity.AttractionEntity;
+import com.mintcho95.BusanPlace.Exception.ApplicationException;
+import com.mintcho95.BusanPlace.Exception.ErrorCode;
 import com.mintcho95.BusanPlace.Mapper.BusanPlaceMapper;
 import com.mintcho95.BusanPlace.Repository.BusanPlaceRepository;
 import jakarta.transaction.Transactional;
@@ -21,14 +23,22 @@ public class BusanPlaceService {
 
     public ResponseEntity<List<AttractionDto>> searchGu(String _gu){
         List<AttractionEntity> village = busanPlaceRepository.searchGu(_gu);
+        if(village.size() == 0){
+            throw new ApplicationException(ErrorCode.RESULT_EMPTY_ERROR);
+        }
         List<AttractionDto> result = BusanPlaceMapper.INSTANCE.entityToDto(village);
+
         System.out.println("새로운기능이 작동되고 있습니다.");
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
 
     public ResponseEntity<List<AttractionDto>> searchQuery(String _input){
         List<AttractionEntity> village = busanPlaceRepository.searchQuery(_input);
+        if(village.size() == 0){
+            throw new ApplicationException(ErrorCode.RESULT_EMPTY_ERROR);
+        }
         List<AttractionDto> result = BusanPlaceMapper.INSTANCE.entityToDto(village);
+
         System.out.println("새로운기능이 작동되고 있습니다.");
         return new ResponseEntity<>(result,HttpStatus.OK);
     }
