@@ -70,6 +70,17 @@ public class ExceptionController{
         return new ResponseEntity<>(d,ErrorCode.INVAILD_REQUEST_ERROR.getHttpStatus());
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class) // 입력값 확인
+    public ResponseEntity<ErrorResponse> vaildCheck(MethodArgumentNotValidException _e){
+        log.error("에러 : {} ",_e.toString());
+
+        ErrorResponse d = new ErrorResponse();
+        d.setStatus(ErrorCode.INVAILD_REQUEST_ERROR.getHttpStatus());
+        d.setMessage(ErrorCode.INVAILD_REQUEST_ERROR.getMessage());
+
+        return new ResponseEntity<>(d,ErrorCode.INVAILD_REQUEST_ERROR.getHttpStatus());
+    }
+
 
     @ExceptionHandler(Exception.class) // 500에러
     public ResponseEntity<ErrorResponse> exceptionError(Exception _e){
