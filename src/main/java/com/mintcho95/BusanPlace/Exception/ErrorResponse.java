@@ -6,7 +6,12 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-public class ErrorMessageDto {
+public class ErrorResponse {
     private HttpStatus status;
     private String message;
+
+//    public ErrorResponse(HttpStatus _status,String _message){
+//        this.status = _status;
+//        this.message = _message;
+//    }
 }
