@@ -1,5 +1,6 @@
 package com.mintcho95.BusanPlace.Service;
 
+import com.mintcho95.BusanPlace.Attraction.Service.BusanPlaceService;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
