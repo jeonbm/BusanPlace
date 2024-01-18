@@ -93,7 +93,7 @@ public class ExceptionController{
     }
 
 
-    @ExceptionHandler(Exception.class) // 500에러 얘가 모든 익셉션을 담당해서 오류뜨면 500번으로 넘겨버리는거였네 ㅋㅋ
+    @ExceptionHandler(Exception.class) // 모든익셉션 발생시 에러코드 출력
     public ResponseEntity<ErrorResponse> exceptionError(Exception _e){
         log.error("에러1 : {} ",_e.toString());
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,20 @@ public class LikeController {
         String UserID = ret.get();
         System.out.println("로그인된 ID : "+UserID);
 
+        
+
         likeRepository.insertLike(_cid,UserID);
+    }
+
+    @GetMapping("/test/api")
+    public List<String> test(){
+
+        List<String> arr = new ArrayList<>();
+
+        for(int i = 0;i<10;i++) {
+            arr.add("안녕"+i);
+        }
+
+        return arr;
     }
 }

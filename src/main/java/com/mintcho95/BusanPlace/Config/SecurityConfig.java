@@ -77,7 +77,8 @@ public class SecurityConfig {
                                         new AntPathRequestMatcher("/member/hello"),
                                         new AntPathRequestMatcher("/member/authenticate"),
                                         new AntPathRequestMatcher("/member/signup"),
-                                        new AntPathRequestMatcher("/img/*")
+                                        new AntPathRequestMatcher("/img/*"),
+                                        new AntPathRequestMatcher("/test/*")
 
                                 )
                                 .permitAll()
